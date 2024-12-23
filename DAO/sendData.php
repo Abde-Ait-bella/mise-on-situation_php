@@ -11,7 +11,6 @@ if (!$name || !$role) {
 }else{
     $sql = "INSERT INTO users (user_name, role_id) VALUES ($name, $role)";
     $result = $conn->query($sql);
-    echo $result;
-}
+    echo $result;}
 
 ?>

@@ -3,8 +3,8 @@
 include "./DAO/database.php";
 include "./DAO/getData.php";
 
- while ($row = $dataAdmine->fetch_assoc()) {
-    echo $row['role_name'] ;
+while ($row = $dataAdmine->fetch_assoc()) {
+    echo $row['role_name'] . "<br>";
 }
 
 ?>
@@ -24,13 +24,17 @@ include "./DAO/getData.php";
             <input type="text" name="name" placeholder="Nom">
 
             <select name="role" id="">
-                <!-- <?php while ($row = $dataAdmine->fetch_assoc()) { ?>
-                    <option value="" ><?php $row['role_name'] ?></option>
-                <?php } ?> -->
-                <option value="1" >admine</option>
-                <option value="2" >utili</option>
-
+                <?php while ($row = $dataAdmine->fetch_assoc()) { ?>
+                    <option value="<?php echo $row['role_id'] ?>" ><?php echo $row['role_name'] ?></option>
+                <?php } ?>
             </select>
+
+            <!-- <select name="role" id="">
+                <?php while ($row = $dataAdmine->fetch_assoc()): ?>
+                    <option value="<?php echo $row['role_id']; ?>"><?php echo $row['role_name']; ?>
+                    </option>
+                <?php endwhile ?>
+            </select> -->
 
             <button type="submit">Envoyer</button>
         </form>
